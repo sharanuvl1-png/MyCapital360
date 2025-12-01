@@ -1,0 +1,1 @@
+export default function App(){return <div style={{padding:20,fontSize:20}}>MyCapital360 Simple UI Working ✓</div>}
