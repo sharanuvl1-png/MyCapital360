@@ -10,6 +10,8 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "pdf-parse": "^1.1.1",
+    "busboy": "^1.6.0",
     "recharts": "^2.4.0"
   },
   "devDependencies": {
