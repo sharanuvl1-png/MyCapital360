@@ -1,188 +1,91 @@
-/* MyCapital360 Glassmorphism + Neon theme - concise and self-contained */
+/* MyCapital360 — Gotham Neon Premium UI */
 :root{
-  --bg-0:#04122a;
-  --bg-1:#061025;
-  --glass:rgba(255,255,255,0.04);
-  --glass-strong:rgba(255,255,255,0.06);
-  --muted:#9fb3c9;
-  --accent-1:#4f46e5;
-  --accent-2:#06b6d4;
-  --neon:#06b6d4;
-  --success:#10b981;
-  --danger:#ef4444;
+  --bg-0:#041025;
+  --bg-1:#04162b;
+  --card: rgba(255,255,255,0.035);
+  --glass: rgba(255,255,255,0.04);
+  --muted: #9fb3c9;
+  --accent1: #7c3aed; /* purple */
+  --accent2: #06b6d4; /* cyan */
+  --accent-grad: linear-gradient(135deg,var(--accent1),var(--accent2));
+  --success: #10b981;
+  --danger: #ef4444;
+  --glass-border: rgba(255,255,255,0.04);
+  --glass-strong: rgba(255,255,255,0.06);
 }
 
-*{
-  box-sizing:border-box;
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
-  color:#e6eef8;
-}
+*{box-sizing:border-box;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:#e6eef8}
+html,body,#root{height:100%;margin:0;background:radial-gradient(1200px 600px at 10% 10%, rgba(79,70,229,0.06), transparent), linear-gradient(180deg,var(--bg-0),var(--bg-1));}
 
-body{
-  margin:0;
-  background:linear-gradient(180deg,var(--bg-0) 0%,var(--bg-1) 100%);
-  min-height:100vh
-}
+/* Topbar */
+.topbar{height:72px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(255,255,255,0.02)}
+.topbar-inner{max-width:1200px;width:100%;display:flex;align-items:center;justify-content:space-between;padding:0 20px}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:48px;height:48px;border-radius:12px;background:var(--accent-grad);box-shadow:0 10px 40px rgba(14,165,233,0.09)}
+.title{font-weight:700;font-size:18px}
+.subtitle{font-size:12px;color:var(--muted);margin-top:2px}
 
-.mc-topbar{
-  backdrop-filter: blur(6px);
-  background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border-bottom:1px solid rgba(255,255,255,0.03)
-}
+/* Page grid */
+.page{max-width:1200px;margin:20px auto;padding:0 20px;display:grid;grid-template-columns:2fr 1fr;gap:20px}
+@media (max-width:900px){ .page{grid-template-columns:1fr} }
 
-.mc-topbar-inner{
-  max-width:1100px;
-  margin:0 auto;
-  padding:14px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between
-}
+/* Cards */
+.card{background:var(--card);border-radius:12px;padding:14px;border:1px solid var(--glass-border);box-shadow:0 12px 50px rgba(2,6,23,0.6)}
+.row{display:flex;gap:12px;align-items:center}
 
-.mc-brand{
-  display:flex;
-  gap:12px;
-  align-items:center
-}
+/* Stats area */
+.stats{display:flex;gap:12px;align-items:center}
+.stat{padding:12px 16px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));min-width:170px}
+.stat strong{display:block;font-size:18px}
+.stat .label{color:var(--muted);font-size:12px}
 
-.mc-logo{
-  width:44px;
-  height:44px;
-  border-radius:10px;
-  background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
-  box-shadow:0 8px 30px rgba(6,182,212,0.12)
-}
+/* Buttons */
+.btn{background:var(--accent-grad);border:none;color:#021024;padding:8px 12px;border-radius:10px;font-weight:700;cursor:pointer;box-shadow:0 12px 40px rgba(6,182,212,0.06)}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:8px 10px;border-radius:8px}
+.btn-small{padding:6px 10px;border-radius:8px}
 
-.mc-title{font-weight:700;font-size:18px}
-.mc-sub{font-size:12px;color:var(--muted)}
-.mc-actions{display:flex;gap:12px;align-items:center}
-.mc-user{font-size:13px;color:var(--muted)}
-
-.mc-main{
-  max-width:1100px;
-  margin:22px auto;
-  padding:0 20px
-}
-
-.container-grid{
-  display:grid;
-  grid-template-columns:2fr 1fr;
-  gap:20px
-}
-
-.card{
-  background:var(--glass);
-  border-radius:12px;
-  padding:14px;
-  border:1px solid rgba(255,255,255,0.03);
-  box-shadow:0 10px 40px rgba(2,6,23,0.6)
-}
-
-.header-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center
-}
-
-.btn{
-  padding:8px 12px;
-  border-radius:10px;
-  border:none;
-  background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
-  color:#021024;
-  font-weight:600
-}
-
-.btn-ghost{
-  background:transparent;
-  border:1px solid rgba(255,255,255,0.06);
-  color:var(--muted);
-  padding:8px 10px;
-  border-radius:8px
-}
-
-.table{width:100%;border-collapse:collapse}
-.table th,.table td{
-  padding:8px;
-  text-align:left;
-  border-bottom:1px solid rgba(255,255,255,0.02);
-  font-size:14px
-}
-
-.small-muted{font-size:12px;color:var(--muted)}
-
-.fab{
-  position:fixed;
-  right:28px;
-  bottom:28px;
-  padding:12px 16px;
-  border-radius:14px;
-  background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
-  color:white;
-  box-shadow:0 12px 50px rgba(6,182,212,0.12);
-  border:none;
-  z-index:50
-}
-
-@media (max-width:900px){
-  .container-grid{grid-template-columns:1fr}
-  .fab{right:16px;bottom:16px}
-}
-
-/* ----------------------------------------------------------------------- */
-/*  FIX SECTION — MAKES INPUTS & DROPDOWNS VISIBLE ON DARK NEON BACKGROUND */
-/* ----------------------------------------------------------------------- */
-
-.card input,
-.card select,
-.card textarea,
-input,
-select,
-textarea {
+/* Input fixes (important) */
+input, select, textarea {
   background: rgba(255,255,255,0.95) !important;
-  color: #021024 !important;   /* dark text for readability */
+  color: #021024 !important;
   border: 1px solid rgba(2,6,23,0.12) !important;
   padding: 8px 10px !important;
   border-radius: 8px !important;
   outline: none !important;
   box-shadow: none !important;
 }
+select{z-index:9999;position:relative}
+::placeholder{color:rgba(2,6,23,0.45)}
 
-/* Fix dropdown visibility */
-select {
-  appearance: auto !important;      /* use native visible dropdown */
-  -webkit-appearance: auto !important;
-  -moz-appearance: auto !important;
-  background-color: rgba(255,255,255,0.95) !important;
-  color: #021024 !important;
-  z-index: 9999 !important;          /* prevents hiding behind panels */
-  position: relative;
-}
+/* Table */
+.table{width:100%;border-collapse:collapse}
+.table th, .table td{padding:10px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.02);font-size:14px}
+.table th{color:var(--muted);font-size:13px}
 
-/* Fix placeholder contrast */
-::placeholder {
-  color: rgba(2,6,23,0.45) !important;
-}
+/* Right column visuals */
+.allocation{height:260;display:flex;align-items:center;justify-content:center}
 
-/* Fix CAS panel overlapping input fields */
-input, select {
-  position: relative;
-  z-index: 5;   /* ensure above card layers */
-}
+/* Quick actions */
+.quick button{width:100%;margin-bottom:8px}
 
-/* Prevent text becoming invisible when using transparency */
-.card input:not([type="checkbox"]),
-.card select {
-  backdrop-filter: none !important;
-}
+/* Floating CAS button */
+.import-fab{position:fixed;right:28px;bottom:28px;padding:12px 16px;border-radius:14px;background:var(--accent-grad);color:white;box-shadow:0 20px 60px rgba(79,70,229,0.12);border:none;z-index:120}
 
-/* Optional: dark input variant */
-.dark-input {
-  background: rgba(0,0,0,0.14) !important;
-  color: #e6eef8 !important;
-}
+/* subtle hover */
+.btn:hover{transform:translateY(-2px);transition:transform .2s}
+.card{transition:transform .18s}
+.card:hover{transform:translateY(-4px)}
 
-/* Fix spacing crashes on smaller devices */
-.container-grid {
-  gap: 16px !important;
+/* Tabs */
+.tabs{display:flex;gap:8px;margin-bottom:12px}
+.tab{padding:8px 12px;border-radius:8px;background:transparent;border:1px solid transparent;color:var(--muted);cursor:pointer}
+.tab.active{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-color:rgba(255,255,255,0.03);color:white}
+
+/* small muted */
+.small-muted{font-size:12px;color:var(--muted)}
+
+/* responsive tweaks */
+@media (max-width:600px){
+  .stat{min-width:120px}
+  .title{font-size:16px}
 }
